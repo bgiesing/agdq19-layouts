@@ -30,7 +30,7 @@ before_build:
   # Clone NodeCG, so that we can reference its types.
   # Don't install its deps yet though.
   - cd ..
-  - git clone https://github.com/nodecg/nodecg.git
+  - git clone https://github.com/bgiesing/nodecg.git
   - cd nodecg
 
   # Move our bundle into the expected path, and cd back into that dir.
@@ -61,7 +61,7 @@ after_build:
   - ps: (Get-Content -path $env:GOD_DAMNIT -Raw).replace('const standardizedName = standardizeName(type, name);','const standardizedName = standardizeName(type, name); dirname = "/snapshot/nodecg/";') | Set-Content -Path $env:GOD_DAMNIT
 
   # Create our exe using Zeit pkg.
-  - pkg index.js --targets node8-win-x64 --public
+  - pkg . --targets node8-win-x64 --public
 
   # Download our demo config.
   - if not exist cfg mkdir cfg
