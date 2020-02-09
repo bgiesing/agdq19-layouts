@@ -40,7 +40,6 @@ before_build:
 
 build_script:
   - npm run build
-  - npm run test
 
 after_build:
   # Get rid of our bundle's devDeps, we only want to package prod deps.
