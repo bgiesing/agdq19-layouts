@@ -32,6 +32,7 @@ before_build:
   - cd ..
   - git clone https://github.com/bgiesing/nodecg.git
   - cd nodecg
+  - git checkout 1.4.1
 
   # Move our bundle into the expected path, and cd back into that dir.
   - 'move %APPVEYOR_BUILD_FOLDER% bundles\%APPVEYOR_PROJECT_SLUG%'
@@ -46,7 +47,7 @@ after_build:
 
   # Install NodeCG's deps
   - cd ../..
-  - npm ci --production
+  - npm ci --production && bower install
 
   # Delete .git files, so that they aren't added to the package.
   - del /f/s/q .git bundles\%APPVEYOR_PROJECT_SLUG%\.git > nul
