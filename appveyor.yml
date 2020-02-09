@@ -32,7 +32,7 @@ before_build:
   - cd ..
   - git clone https://github.com/nodecg/nodecg.git
   - cd nodecg
-  - git checkout a6637d331a9c301d60957a89b3ba0dec708165b3 .
+  - git checkout 21537b95cfdc205b7136472f930b60a76cd789d9 .
 
   # Move our bundle into the expected path, and cd back into that dir.
   - 'move %APPVEYOR_BUILD_FOLDER% bundles\%APPVEYOR_PROJECT_SLUG%'
